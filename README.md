@@ -35,9 +35,6 @@ docker build -t myapi:0.0.1 .
 docker run -dt -p 80:80 myapi:0.0.1
 ```
 
-# Running in Docker
-TODO
-
 ## Test CURLs
 NOTE: Change the port from 10000 to 80 depending on whether running locally or not
 ```
