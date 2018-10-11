@@ -8,3 +8,6 @@ ENV LISTENPORT 80
 
 RUN pip install --upgrade pip
 RUN pip install /app/app
+
+#create logging dir
+RUN mkdir -p /opt/logs/
