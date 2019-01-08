@@ -1,0 +1,51 @@
+---
+  openapi: "3.0.0"
+  info:
+    version: "2.1.0"
+    title: "My Api"
+  paths:
+    /foo/{bar}:
+      parameters:
+        -
+          name: "bar"
+          in: "path"
+          description: "demonstration of path param"
+          required: true
+          schema:
+            type: "string"
+      get:
+        description: "gets the bar"
+        operationId: "myapi.controller.foo_handler"
+        responses:
+          200:
+            description: "OK;"
+            content:
+              application/json:
+                schema:
+                  type: "object"
+          404:
+            description: "there is no bar"
+    /baz:
+      post:
+        description: "demonstration of post body"
+        operationId: "myapi.controller.baz_handler"
+        responses:
+          200:
+            description: "OK..."
+        requestBody:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/baz_post"
+          description: "Represents a POST body"
+  components:
+    schemas:
+      baz_post:
+        type: "object"
+        required:
+          - "query_string"
+        properties:
+          query_string:
+            type: "string"
+            description: "the raw query;"
+

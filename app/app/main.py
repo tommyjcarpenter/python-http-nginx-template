@@ -6,7 +6,7 @@ from myapi import controller
 _logger = get_module_logger(__name__)
 
 app = connexion.App(__name__, specification_dir='.')
-app.add_api('swagger.yaml', arguments={'title': 'My API'})
+app.add_api('openapi.yaml', arguments={'title': 'My API'})
 
 if __name__ == "__main__":
     # Entrypoint when testing locally. UWSGI DOES NOT ENTER HERE

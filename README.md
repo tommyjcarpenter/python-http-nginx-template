@@ -28,11 +28,11 @@ pip install --ignore-installed .; ./main.py
 # Docker
 ## building
 ```
-docker build -t myapi:0.0.1 .
+docker build -t myapi:X.Y.Z .
 ```
 ## running
 ```
-docker run -dt -p 80:80 myapi:0.0.1
+docker run -dt -p 80:80 myapi:X.Y.Z
 ```
 
 ## Test CURLs
