@@ -1,24 +1,32 @@
-from myapi import controller
+from myapi import app
+import pytest
+import os
+import tempfile
 
 
-# pytest doesnt support objects in conftest yet
-class FakeConnexion(object):
-    def __init__(self, json):
-        self.json = json
+# http://flask.pocoo.org/docs/1.0/testing/
+@pytest.fixture
+def client():
+    db_fd, app.app.config['DATABASE'] = tempfile.mkstemp()
+    app.app.config['TESTING'] = True
+    client = app.app.test_client()
+
+    yield client
+
+    os.close(db_fd)
+    os.unlink(app.app.config['DATABASE'])
 
 
-def test_foo_handler():
+def test_foo_handler(client):
     """test controller.foo_handler"""
-    R = controller.foo_handler("aaa")
+    R = client.get('/foo/aaa')
     assert R.data == b"aaa"
     assert R.status_code == 200
 
 
-def test_baz_handler(monkeypatch):
+def test_baz_handler(client, monkeypatch):
     """tests controller.foo handler"""
     fake_json = {"query_string": "amazingquery"}
-    monkeypatch.setattr('connexion.request', FakeConnexion(fake_json))
-
-    R = controller.baz_handler()
+    R = client.post("baz", json=fake_json)
     assert R.data == b"amazingquery"
     assert R.status_code == 200

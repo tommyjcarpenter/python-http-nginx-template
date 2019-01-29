@@ -1,8 +1,13 @@
 """
 Module that handles logging
 """
+import connexion
 import logging
 import logging.handlers
+
+
+app = connexion.App(__name__, specification_dir='.')
+app.add_api('openapi.yaml', arguments={'title': 'My API'})
 
 
 def get_module_logger(mod_name):
