@@ -1,4 +1,6 @@
-FROM tiangolo/uwsgi-nginx-flask:python3.6
+FROM tiangolo/uwsgi-nginx-flask:python3.7
+
+# The base image here is Debian GNU/Linux 9
 
 #setup uwsgi+nginx 
 # https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/

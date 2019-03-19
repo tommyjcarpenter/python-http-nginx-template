@@ -1,16 +1,29 @@
 # Tech Stack
-- Swagger
+- OpenAPI3
 - Connexion
 - Flask
 - uwsgi
 - NGINX
-- Python3.6
+- Python3.7
 
 # A Note About App Structure
 I am using https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/
 Big credit to this project: https://github.com/tiangolo/uwsgi-nginx-flask-docker
 
 This is a uwsgi+flask+nginx all in one container. It requires an specific app structure to use, which I'm using.
+
+# Changing for a new project
+The term `myapi` is present in:
+1. `app/app/myapi`
+2. `app/app/tox.ini`
+3. `app/app/setup.py`
+4. `app/app/tests/test_controller.py`
+5. The folder in 1/openapi.yaml
+Change those to `your_package_name`.
+
+Next, change the version in `app/app/setup.py` accordingly.
+
+Finally, modify the `Changelog.md` accordingly.
 
 # Unit Testing
 ```
