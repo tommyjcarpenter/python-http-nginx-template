@@ -2,7 +2,7 @@ import connexion
 from flask import Response
 import logging
 
-# will be set in uwsgi later
+# will be set in uwsgi later (main.py sets this)
 logger = logging.getLogger()
 
 

@@ -35,7 +35,8 @@ open htmlcov/index.html
 # Running locally
 ```
 cd app/app
-pip install --ignore-installed .; ./main.py
+pip install --ignore-installed -e .
+./main.py
 ```
 
 # Docker
