@@ -1,9 +1,10 @@
 import connexion
 from flask import Response
 import logging
+from myapi import get_module_logger
 
 # will be set in uwsgi later (main.py sets this)
-logger = logging.getLogger()
+logger = get_module_logger(__name__)
 
 
 def foo_handler(bar):

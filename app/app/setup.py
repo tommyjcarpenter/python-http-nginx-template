@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='myapi',
-    version='0.0.4',
+    version='0.1.0',
     packages=find_packages(exclude=["tests.*", "tests"]),
     author="",
     author_email="",
